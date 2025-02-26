@@ -1,7 +1,4 @@
 import pandas as pd
-
-
-
 # Fetch historical data from Binance
 def get_historical_data(exchange, symbol , timeframe="1h", limit=100):
         try:

@@ -1,5 +1,5 @@
 from scripts.fetch_historical_data import get_historical_data
-from backend.database.connection import historical_collection
+from backend.database.connection import db
 import pandas as pd
 import ccxt
 binance = ccxt.binance()
@@ -8,7 +8,11 @@ TOKEN_PAIRS = ["BTC/USDT", "ETH/USDT"]
 
 
 
-def store_historical_data(data):
+def store_historical_data(data, symbol):
+
+    collection_name = symbol.replace("/", "_")  # Example: BTC/USDT → BTC_USDT
+    historical_collection = db[collection_name]
+
     """ Store historical data in MongoDB """
     if isinstance(data, pd.DataFrame):  
         data_dict = data.to_dict(orient="records")  # Convert DataFrame to list of dictionaries
