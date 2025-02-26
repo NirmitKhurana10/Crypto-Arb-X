@@ -23,6 +23,6 @@ def store_historical_data(data, symbol):
 
 for pair in TOKEN_PAIRS:
     historical_data = get_historical_data(binance, pair)
-    store_historical_data(historical_data)
+    store_historical_data(historical_data, pair)
 
 print("Historical Data stored in mongodb successfully")
