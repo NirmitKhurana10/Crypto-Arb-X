@@ -4,7 +4,7 @@ import pandas as pd
 import ccxt
 binance = ccxt.binance()
 
-TOKEN_PAIRS = ["BTC/USDT", "ETH/USDT"]
+
 
 
 
@@ -20,6 +20,7 @@ def store_historical_data(data, symbol):
     else:
         historical_collection.insert_one(data)
 
+TOKEN_PAIRS = ["BTC/USDT", "ETH/USDT"]
 
 for pair in TOKEN_PAIRS:
     historical_data = get_historical_data(binance, pair)
