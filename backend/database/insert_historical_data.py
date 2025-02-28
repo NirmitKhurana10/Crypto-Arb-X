@@ -5,9 +5,6 @@ import ccxt
 binance = ccxt.binance()
 
 
-
-
-
 def store_historical_data(data, symbol):
 
     collection_name = symbol.replace("/", "_")  # Example: BTC/USDT → BTC_USDT
